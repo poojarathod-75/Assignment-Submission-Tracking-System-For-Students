@@ -1,0 +1,43 @@
+<form action="studentDetails.php" method="POST">
+    <label for="student_id">Student ID</label>
+    <input type="text" name="student_id" id="student_id" class="form-control" required>
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $student_id = $_POST['student_id'];
+
+    // Example logic (replace with database logic)
+    if ($student_id == "039") {
+        echo "Login successful. Redirecting...";
+        header("Location: homepage.html");
+        exit;
+    } else {
+        echo "Invalid ID. Please try again.";
+    }
+}
+?>
+<form action="teachers_db.php" method="POST">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" class="form-control" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" class="form-control" required>
+    <br>
+    <button type="submit" class="btn btn-success">Login</button>
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Example logic (replace with database logic)
+    if ($username == "teacher" && $password == "1234") {
+        echo "Login successful. Redirecting...";
+        header("Location: teacher_dashboard.html");
+        exit;
+    } else {
+        echo "Invalid Username or Password. Try again.";
+    }
+}
+?>
